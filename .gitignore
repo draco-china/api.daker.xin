@@ -1,0 +1,15 @@
+# key
+key
+
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# IDE/Editor data
+.idea
+.vscode
+
+# Other
+.DS_Store
