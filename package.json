@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "daker.xin-后台api",
   "author": "Daker Zhou🍀 <Daker.zhou@gmail.com>",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
   "dependencies": {
     "jsonwebtoken": "^8.2.0",
     "koa": "^2.5.0",
@@ -10,6 +13,7 @@
     "koa-convert": "^1.2.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.5",
     "md5": "^2.2.1",
     "mongoose": "^5.0.10"
   }

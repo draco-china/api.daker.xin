@@ -17,11 +17,15 @@ mongodb.connect()
 
 // middleware
 const middleware = require('./middleware')
-app.use(middleware.cors)
+
 app.use(middleware.errorHandler)
+
+// cors
+const cors = require('koa2-cors')()
+app.use(cors)
 
 const routers = require('./routers')
 app.use(routers.routes(), routers.allowedMethods())
 
-app.listen(8080)
-console.log('the server is starting at port 8080')
+app.listen(8888)
+console.log('the server is starting at port 8888')
