@@ -12,5 +12,9 @@ module.exports = {
             }
         }
     },
-    token: key.token
+    token: key.token,
+    baidu: {
+        site: key.baidu.site,
+        token: key.baidu.site
+    }
 }

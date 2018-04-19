@@ -6,16 +6,16 @@ const jwt = require('jsonwebtoken')
 const config = require('../config')
 
 module.exports = async (ctx, next) => {
-    const authorzation = ctx.request.header.authorization
+    const token = ctx.request.header.authorization
 
-    if (!authorzation) {
+    if (!token) {
         ctx.throw(401, 'No token detected.')
     }
 
-    const token = authorzation.split('.')[1]
     let tokenContent
     try {
         tokenContent = await jwt.verify(token, config.token)
+        console.log(tokenContent)
     } catch (err) {
         // Token 过期
         if (err.name === 'TokenExpiredError') {
@@ -28,3 +28,4 @@ module.exports = async (ctx, next) => {
     ctx.token = tokenContent
     return await next()
 }
+

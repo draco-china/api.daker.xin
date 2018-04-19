@@ -11,14 +11,14 @@ class User {
     // 用户登陆
     static async SignIn (ctx) {
         const { username, password } = ctx.request.body
-        console.log(ctx)
+
         //检查数据库中是否存在该用户名
         let result = await UserModel.findOne({ username })
-        console.log(result)
+
         if (result) {
             //判断密码是否正确
             if (md5(password) === result.password) {
-                let token = jwt.sign( { username, password }, config.token, { expiresIn: '3h' } ) // .split('.')[2]
+                let token = jwt.sign( { username, password }, config.token, { expiresIn: '3h' } )
                 ctx.status = 200
                 ctx.body = {
                     success: true,
