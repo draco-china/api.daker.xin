@@ -28,7 +28,7 @@ class Tag {
       return
     }
 
-    if (await CategoryModel.findOne({slug: tag.slug}).exec()) {
+    if (await TagModel.findOne({slug: tag.slug}).exec()) {
       ctx.status = 400
       ctx.body = {
         success: false,
