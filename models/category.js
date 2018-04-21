@@ -18,6 +18,9 @@ const CategorySchema = new Schema({
     // 分类名称
     name: { type: String, required: true, validate: /\S+/ },
 
+    // 模块链接
+    slug: { type: String, required: true, validate: /\S+/ },
+
     // 描述
     description: String,
 

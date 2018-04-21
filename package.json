@@ -4,7 +4,8 @@
   "description": "daker.xin-后台api",
   "author": "Daker Zhou🍀 <Daker.zhou@gmail.com>",
   "scripts": {
-    "start": "nodemon app.js"
+    "dev": "NODE_ENV=development nodemon app.js",
+    "start": "NODE_ENV=production nodemon app.js"
   },
   "dependencies": {
     "jsonwebtoken": "^8.2.0",
