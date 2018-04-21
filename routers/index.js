@@ -24,7 +24,7 @@ router
     })
     // auth
     .post('/login', User.SignIn)
-    .post('/register', User.SignUp)
+    // .post('/register', User.SignUp)
 
     // icon
     .get('/icons', Icon.get)
