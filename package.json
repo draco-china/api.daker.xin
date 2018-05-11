@@ -5,7 +5,7 @@
   "author": "Daker Zhou🍀 <Daker.zhou@gmail.com>",
   "scripts": {
     "dev": "NODE_ENV=development nodemon app.js",
-    "start": "NODE_ENV=production nodemon app.js"
+    "start": "NODE_ENV=production node app.js"
   },
   "dependencies": {
     "jsonwebtoken": "^8.2.0",
