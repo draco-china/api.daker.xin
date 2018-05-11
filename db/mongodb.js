@@ -1,5 +1,6 @@
 /**
- * @file mongodb数据库管理模块
+ * @desc mongodb数据库管理模块
+ * @author Daker(Daker.zhou@gmail.com)
  */
 const mongoose = require('mongoose')
 const config = require('../config/index')
@@ -10,7 +11,7 @@ exports.mongoose = mongoose
 
 exports.connect = () => {
     mongoose.connect(config.db.url, config.db.options)
-    console.log()
+
     // 连接成功
     mongoose.connection.on('connected', () => {
         console.log('Mongoose connection open to ' + config.db.url)

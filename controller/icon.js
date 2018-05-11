@@ -22,7 +22,7 @@ class Icon {
     icon = JSON.parse(icon) // 获取json文件对象
     let icons = []
     icon.data.icons.forEach(item => {
-      icons.push(`icon-${item.name}`)
+      icons.push(`icon-${item.font_class}`)
     })
     ctx.status = 200
     ctx.body = {

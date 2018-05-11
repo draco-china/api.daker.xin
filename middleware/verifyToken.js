@@ -1,5 +1,6 @@
 /**
- * @file token验证
+ * @desc token验证
+ * @author Daker(Daker.zhou@gmail.com)
  */
 
 const jwt = require('jsonwebtoken')
@@ -15,7 +16,6 @@ module.exports = async (ctx, next) => {
     let tokenContent
     try {
         tokenContent = await jwt.verify(token, config.token)
-        console.log(tokenContent)
     } catch (err) {
         // Token 过期
         if (err.name === 'TokenExpiredError') {

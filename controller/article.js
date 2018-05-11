@@ -1,5 +1,6 @@
 /**
- * @file 控制
+ * @desc 控制
+ * @author Daker(Daker.zhou@gmail.com)
  */
 
 const ArticleModel = require('../models/article')
@@ -13,11 +14,11 @@ const select = {
 class Article {
   // 获取文章列表
   static async list(ctx) {
-    let {currentPage, pageSize, state, keyword, categorySlug, tagSlug, date, hot} = ctx.query
+    let {currentPage, pageSize, state, keyword, category_slug, tag_slug, date, hot} = ctx.query
 
     // filter options
     const options = {
-      sort: {createAt: -1},
+      sort: {create_at: -1},
       page: Number(currentPage || 1),
       limit: Number(pageSize || 10),
       populate: ["category", "tag"],
@@ -46,14 +47,14 @@ class Article {
     }
 
     // 标签id查询
-    if (tagSlug) {
-      let tag = await TagModel.findOne({slug: tagSlug})
+    if (tag_slug) {
+      let tag = await TagModel.findOne({slug: tag_slug})
       querys.tag = tag._id
     }
 
     // 分类id查询
-    if (categorySlug) {
-      let category = await CategoryModel.findOne({slug: categorySlug})
+    if (category_slug) {
+      let category = await CategoryModel.findOne({slug: category_slug})
       querys.category = category._id
     }
 
@@ -69,7 +70,7 @@ class Article {
     if (date) {
       const getDate = new Date(date);
       if (!Object.is(getDate.toString(), 'Invalid Date')) {
-        querys.createAt = {
+        querys.create_at = {
           "$gte": new Date((getDate / 1000 - 60 * 60 * 8) * 1000),
           "$lt": new Date((getDate / 1000 + 60 * 60 * 16) * 1000)
         }
@@ -160,8 +161,8 @@ class Article {
     }
     // 重置信息
     delete article.meta
-    delete article.createAt
-    delete article.updateAt
+    delete article.create_at
+    delete article.update_at
 
     let result = await ArticleModel.findByIdAndUpdate(id, article, {new: true, select})
 

@@ -1,5 +1,6 @@
 /**
- * @file 标签控制
+ * @desc 标签控制
+ * @author Daker(Daker.zhou@gmail.com)
  */
 
 const TagModel = require('../models/tag')

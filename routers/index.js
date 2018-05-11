@@ -2,10 +2,12 @@
 const router = require('koa-router')()
 const middleware = require('../middleware')
 const User = require('../controller/user')
+const Site = require('../controller/site')
 const Icon = require('../controller/icon')
 const Tag = require('../controller/tag')
 const Category = require('../controller/category')
 const Article = require('../controller/article')
+const Github = require('../controller/github')
 
 // 文件上传
 const multerUpload = require('./upload')
@@ -22,9 +24,18 @@ router
             "powered":["Vue","Nuxt.js","MongoDB","Nodejs","Express","Koa2","Nginx"]
         }
     })
+
     // auth
-    .post('/login', User.SignIn)
+    .post('/login', User.login)
     // .post('/register', User.SignUp)
+    // 获取作者资料
+    .get('/user', User.get)
+    .put('/user', User.update)
+
+    // 获取全局配置
+    .get('/site', Site.get)
+    // 修改全局配置
+    .put('/site', middleware.verifyToken, Site.update)
 
     // icon
     .get('/icons', Icon.get)
@@ -53,4 +64,7 @@ router
     .patch('/article', middleware.verifyToken, Article.patch)
     .put('/article/:id', middleware.verifyToken, Article.update)
     .delete('/article/:id', middleware.verifyToken, Article.delete)
+
+    // 获取github项目
+    .get('/github', Github.list)
 module.exports = router

@@ -1,5 +1,6 @@
 /**
- * @file 文件上传
+ * @desc 文件上传
+ * @author Daker(Daker.zhou@gmail.com)
  */
 const config = require('../config')
 const multer = require('koa-multer')
@@ -20,7 +21,8 @@ const upload = multer({
       let pointIndex = originalname.lastIndexOf('.')
       let filename = originalname.substr(0,pointIndex)
       let suffix = originalname.substr(pointIndex+1)
-      cb(null, filename+'-' +Date.now()+'.'+suffix)
+      // cb(null, filename+'-' +Date.now()+'.'+suffix)
+      cb(null, Date.now()+'.'+suffix)
     }
   })
 });

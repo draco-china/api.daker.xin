@@ -1,5 +1,6 @@
 /**
- * @file 控制
+ * @desc 分类控制
+ * @author Daker(Daker.zhou@gmail.com)
  */
 
 const CategoryModel = require('../models/category')
@@ -140,7 +141,6 @@ class Category {
     const category = ctx.request.body
     const id = ctx.params.id
 
-    console.log(id)
     // name validate
     if (!category.name) {
       ctx.throw(400, '分类名为空')
