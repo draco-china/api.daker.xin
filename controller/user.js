@@ -8,6 +8,9 @@ const md5 = require('md5')
 const UserModel = require('../models/user')
 const config = require('../config')
 
+
+// new UserModel({username: 'Daker', password: md5('Daker19960525')}).save()
+
 class User {
   // 用户登陆
   static async login(ctx) {

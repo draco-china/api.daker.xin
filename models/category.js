@@ -13,9 +13,6 @@ autoIncrement.initialize(mongoose.connection)
 
 const CategorySchema = new Schema({
 
-  // 图标
-  icon: String,
-
   // 分类名称
   name: {type: String, required: true, validate: /\S+/},
 
